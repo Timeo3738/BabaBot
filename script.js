@@ -17,7 +17,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         // Envoie les données au serveur Flask
-        const res = await fetch('https://falling-unit-2ae1.timeo-coussegal.workers.dev/', {
+        const res = await fetch('https://polished-brook-6c4a.timeo-coussegal.workers.dev/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
