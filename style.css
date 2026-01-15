@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin:0; font-family:'Press Start 2P', cursive;
+  background: linear-gradient(135deg,#1d1d1d,#2a2a2a);
+  color:#fff;
+  scroll-behavior:smooth;
+}
+
+.container { max-width:1000px; margin:auto; padding:50px 20px; text-align:center; }
+h1 { font-size:3em; color:#3c9ce0; text-shadow:2px 2px #000; margin-bottom:50px; }
+.features { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:30px; margin-bottom:50px; }
+.feature { background:#0f0f0fcc; border:3px solid #3c9ce0; border-radius:15px; padding:20px; box-shadow:0 0 15px #3c9ce0; transition: all 0.3s ease; }
+.feature:hover { transform: translateY(-10px); box-shadow:0 0 25px #e0c03c; }
+.feature h2 { font-size:1.2em; color:#e0c03c; margin-bottom:10px; }
+.feature p { font-size:0.9em; }
+.button-container { margin-bottom:50px; }
+.button-container a { display:inline-block; text-decoration:none; background:#3c9ce0; color:#fff; padding:20px 40px; border-radius:15px; font-size:1em; transition: all 0.3s ease; }
+.button-container a:hover { background:#e0c03c; color:#000; transform: scale(1.05); box-shadow:0 0 20px #e0c03c; }
+
+#devis { background:#0f0f0fcc; border:3px solid #3c9ce0; border-radius:15px; padding:30px; max-width:600px; margin:auto; margin-bottom:50px; box-shadow:0 0 20px #3c9ce0; }
+#devis input, #devis textarea { width:90%; padding:10px; margin:10px 0; border:2px solid #3c9ce0; border-radius:8px; background:#1a1a1a; color:#fff; }
+#devis input:focus, #devis textarea:focus { outline:none; border-color:#e0c03c; box-shadow:0 0 10px #e0c03c; }
+.checkbox-group { display:flex; justify-content:center; gap:20px; margin:15px 0; }
+input[type="checkbox"] { transform:scale(1.5); cursor:pointer; }
+#devis button { padding:15px 30px; border:none; background:#3c9ce0; color:#fff; border-radius:8px; cursor:pointer; transition: all 0.3s ease; }
+#devis button:hover { background:#e0c03c; color:#000; transform: scale(1.05); box-shadow:0 0 20px #e0c03c; }
+.success { color:#0f0; font-weight:bold; margin-top:15px; display:none; }

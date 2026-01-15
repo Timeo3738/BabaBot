@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Baba-Build</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<h1>Baba-Build</h1>
+
+<div class="features">
+  <div class="feature"><h2>Rapidité</h2><p>Livraison rapide et efficace de tous vos projets.</p></div>
+  <div class="feature"><h2>Qualité</h2><p>Travail soigné et fidèle à vos attentes.</p></div>
+  <div class="feature"><h2>Support</h2><p>Une équipe disponible pour vous accompagner.</p></div>
+  <div class="feature"><h2>Créativité</h2><p>Des builds uniques et personnalisés pour chaque client.</p></div>
+</div>
+
+<div class="button-container"><a href="#devis">Faire un devis</a></div>
+</div>
+
+<div id="devis">
+<form id="contactForm">
+  <input type="text" name="mcname" placeholder="Pseudo Minecraft" required>
+  <input type="text" name="discordname" placeholder="Pseudo Discord" required>
+  <textarea name="description" placeholder="Description de la demande" rows="4" required></textarea>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="type" value="Build"> Build</label>
+    <label><input type="checkbox" name="type" value="Farming"> Farming</label>
+  </div>
+  <button type="submit">Envoyer</button>
+  <div class="success" id="successMsg">Message envoyé ! ✅</div>
+</form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
