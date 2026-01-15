@@ -4,11 +4,12 @@ form.addEventListener('submit', async (e) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  await fetch("https://TON_SERVEUR_API/submit-form", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+fetch("http://51.75.118.171:20058/submit-form", {
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: new URLSearchParams(data)
+});
+
 
   document.getElementById('successMsg').style.display = 'block';
   form.reset();
