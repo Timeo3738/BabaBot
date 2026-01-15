@@ -1,35 +1,40 @@
+// Récupère le formulaire et le message de succès
+const form = document.getElementById('contactForm');
+const successMsg = document.getElementById('successMsg');
+
 form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Empêche le rechargement de la page
 
-    const mcname = form.mcname.value;
-    const discordname = form.discordname.value;
-    const description = form.description.value;
-    const types = Array.from(form.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
-
-    const webhookData = {
-        embeds: [{
-            title: "📝 Nouveau formulaire reçu",
-            color: 0x00FF00,
-            fields: [
-                { name: "Minecraft", value: mcname, inline: true },
-                { name: "Discord", value: discordname, inline: true },
-                { name: "Type", value: types || "Aucun" },
-                { name: "Description", value: description }
-            ],
-            timestamp: new Date()
-        }]
+    // Récupère les valeurs du formulaire
+    const formData = {
+        mcname: form.mcname.value,
+        discordname: form.discordname.value,
+        description: form.description.value,
+        type: Array.from(form.querySelectorAll('input[name="type"]:checked'))
+                    .map(cb => cb.value)
+                    .join(', ')
     };
 
     try {
-        await fetch("https://discordapp.com/api/webhooks/1461390593220411522/3OfAEFpZGWhpJQ0r3hvFYnl9bNdmC3KGw6rs4SdfTPJcxG27ond8c9RP1pcH4AMq6ZaJ", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(webhookData)
+        // Envoie les données au serveur Flask
+        const res = await fetch('http://51.75.118.171:20058/formulaire', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
         });
-        successMsg.style.display = 'block';
-        form.reset();
-    } catch (error) {
-        console.error(error);
+
+        const result = await res.json();
+
+        if(result.success){
+            // Affiche le message de succès
+            successMsg.style.display = 'block';
+            form.reset(); // Vide le formulaire
+        } else {
+            alert("Erreur lors de l'envoi : " + (result.error || "Inconnue"));
+        }
+
+    } catch (err) {
+        console.error(err);
         alert("Erreur lors de l'envoi !");
     }
 });
